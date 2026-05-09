@@ -34,25 +34,26 @@ jobs:
         run: |
           node .output/server/index.mjs &
           SERVER_PID=$!
-          echo "Waiting for server (PID $SERVER_PID)..."
-          for i in $(seq 1 30); do
-            if curl -sf http://127.0.0.1:3000/ -o /dev/null 2>&1; then
-              echo "Server ready after ${i}s"
-              break
-            fi
-            sleep 1
-          done
-          curl -f http://127.0.0.1:3000/ -o .output/public/index.html
-          SIZE=$(wc -c < .output/public/index.html)
-          echo "Captured index.html (${SIZE} bytes)"
-          if [ "$SIZE" -lt 100 ]; then
-            echo "ERROR: index.html is too small, prerender failed"
-            cat .output/public/index.html
-            exit 1
-          fi
-          cp .output/public/index.html .output/public/404.html
-          touch .output/public/.nojekyll
-          kill $SERVER_PID
+          node --input-type=module -e "
+            const maxRetries = 30;
+            for (let i = 1; i <= maxRetries; i++) {
+              try {
+                const res = await fetch('http://127.0.0.1:3000/');
+                const html = await res.text();
+                if (html.length < 100) throw new Error('Response too small: ' + html.length + ' bytes');
+                const fs = await import('node:fs');
+                fs.writeFileSync('.output/public/index.html', html);
+                fs.writeFileSync('.output/public/404.html', html);
+                fs.writeFileSync('.output/public/.nojekyll', '');
+                console.log('Prerendered index.html (' + html.length + ' bytes)');
+                process.exit(0);
+              } catch (e) {
+                if (i === maxRetries) { console.error('Failed:', e.message); process.exit(1); }
+                await new Promise(r => setTimeout(r, 1000));
+              }
+            }
+          "
+          kill $SERVER_PID 2>/dev/null || true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .output/public
