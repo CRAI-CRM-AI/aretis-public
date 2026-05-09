@@ -10,7 +10,7 @@ export function Hero() {
         ref={ref}
         className={`${styles.content} ${styles.animated} ${inView ? styles.visible : ''}`}
       >
-        <h1 className={styles.title}>Aretis</h1>
+        <div className={styles.logo} role="img" aria-label="Aretis" />
         <p className={styles.tagline}>
           Building the future of collaborative problem-solving.
         </p>
