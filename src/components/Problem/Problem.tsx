@@ -10,12 +10,18 @@ export function Problem() {
         ref={ref}
         className={`${styles.inner} ${styles.animated} ${inView ? styles.visible : ''}`}
       >
-        <h2 className={styles.heading}>The Problem</h2>
+        <h2 className={styles.heading}>Bridging the gap between data silos</h2>
         <p className={styles.body}>
-          Teams today struggle with fragmented workflows and siloed knowledge.
-          Critical insights get lost between tools, meetings, and chat threads —
-          slowing decisions and stifling innovation. Aretis brings clarity to
-          complexity by unifying how teams think, share, and act together.
+          The name Aretis combines the ancient Greek concepts of Aretē
+          (excellence and intelligence) and Iris (the swift messenger) to
+          perfectly reflect its mission: acting as the intelligent communicator
+          for your business data. As a centralized AI interface, Aretis connects
+          directly to platforms like SuperOffice and RecMan to eliminate data
+          silos. Instead of navigating complex menus or jumping between apps,
+          you can simply converse with your entire CRM ecosystem using natural
+          language. Just ask direct questions to instantly pull up client
+          histories, summarize candidate interactions, and cross-reference data
+          across services to make faster, more informed decisions.
         </p>
       </div>
     </section>
