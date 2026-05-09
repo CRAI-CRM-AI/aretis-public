@@ -29,14 +29,27 @@ jobs:
       - name: Prerender static HTML
         env:
           NODE_ENV: production
+          NITRO_HOST: 127.0.0.1
+          NITRO_PORT: 3000
         run: |
           node .output/server/index.mjs &
           SERVER_PID=$!
-          for i in $(seq 1 15); do
-            curl -s http://localhost:3000/ > /dev/null 2>&1 && break
+          echo "Waiting for server (PID $SERVER_PID)..."
+          for i in $(seq 1 30); do
+            if curl -sf http://127.0.0.1:3000/ -o /dev/null 2>&1; then
+              echo "Server ready after ${i}s"
+              break
+            fi
             sleep 1
           done
-          curl -s http://localhost:3000/ -o .output/public/index.html
+          curl -f http://127.0.0.1:3000/ -o .output/public/index.html
+          SIZE=$(wc -c < .output/public/index.html)
+          echo "Captured index.html (${SIZE} bytes)"
+          if [ "$SIZE" -lt 100 ]; then
+            echo "ERROR: index.html is too small, prerender failed"
+            cat .output/public/index.html
+            exit 1
+          fi
           cp .output/public/index.html .output/public/404.html
           touch .output/public/.nojekyll
           kill $SERVER_PID
