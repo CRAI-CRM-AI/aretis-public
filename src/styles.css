@@ -271,6 +271,9 @@ body,
 
 body {
   margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
   background-color: var(--color-background);
   color: var(--color-text);
 }

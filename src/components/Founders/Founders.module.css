@@ -1,0 +1,121 @@
+.founders {
+  container-type: inline-size;
+  padding: var(--spacing-xxl) var(--spacing-xl);
+}
+
+.heading {
+  font-size: var(--font-size-h2);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text);
+  text-align: center;
+  margin: 0 0 var(--spacing-xl);
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xl);
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-xl);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.visible .card:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.visible .card:nth-child(2) {
+  transition-delay: 250ms;
+}
+
+.visible .card:nth-child(3) {
+  transition-delay: 500ms;
+}
+
+.visible .card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.visible .heading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.avatar {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-subtle);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-large);
+  font-weight: 700;
+  margin: 0 auto var(--spacing-md);
+  object-fit: cover;
+}
+
+.name {
+  font-size: var(--font-size-large);
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-xs);
+}
+
+.role {
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  margin: 0 0 var(--spacing-sm);
+}
+
+.bio {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+@container (max-width: 700px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@container (max-width: 440px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .founders {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .heading {
+    font-size: var(--font-size-h3);
+  }
+}
