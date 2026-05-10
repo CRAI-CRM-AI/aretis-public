@@ -6,7 +6,7 @@ const founders = [
     initials: 'MA',
     name: 'Marie-Audrey Raux',
     role: 'Founder and Product Owner',
-    bio: 'Marie-Audrey Raux is passionate about emerging technologies and innovation. With a scientific background spanning industry, energy, and digitalisation, she connects business needs with technology to deliver meaningful and impactful solutions.',
+    bio: 'Marie-Audrey Raux is passionate about emerging technologies and innovation. She connects business needs with technology to deliver meaningful and impactful solutions.',
     image: undefined as string | undefined,
   },
   {
