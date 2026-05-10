@@ -6,7 +6,7 @@ const founders = [
     initials: 'MA',
     name: 'Marie-Audrey Raux',
     role: 'Founder and Product Owner',
-    bio: 'Short text about Marie Audrey Raux',
+    bio: 'Marie-Audrey Raux is passionate about emerging technologies and innovation. With a scientific background spanning industry, energy, and digitalisation, she connects business needs with technology to deliver meaningful and impactful solutions.',
     image: undefined as string | undefined,
   },
   {
@@ -20,7 +20,7 @@ const founders = [
     initials: 'HF',
     name: 'Henrik Falla',
     role: 'Founder and Frontend Developer',
-    bio: 'Short text about Henrik Falla',
+    bio: 'With more than 10 years of experience in frontend development, Henrik is the driving force behind the user-friendly interface of Aretis.',
     image: undefined as string | undefined,
   },
 ]
