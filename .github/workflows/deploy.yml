@@ -24,8 +24,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-        env:
-          BASE_PATH: /aretis-public/
       - name: Prerender static HTML
         env:
           NODE_ENV: production
@@ -45,6 +43,7 @@ jobs:
                 fs.writeFileSync('.output/public/index.html', html);
                 fs.writeFileSync('.output/public/404.html', html);
                 fs.writeFileSync('.output/public/.nojekyll', '');
+                fs.writeFileSync('.output/public/CNAME', 'aretis.no');
                 console.log('Prerendered index.html (' + html.length + ' bytes)');
                 process.exit(0);
               } catch (e) {
