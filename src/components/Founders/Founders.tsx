@@ -4,22 +4,22 @@ import styles from './Founders.module.css'
 const founders = [
   {
     initials: 'MA',
-    name: 'Marie Audrey Raux',
-    role: 'Founder and ...',
+    name: 'Marie-Audrey Raux',
+    role: 'Founder and Product Owner',
     bio: 'Short text about Marie Audrey Raux',
     image: undefined as string | undefined,
   },
   {
     initials: 'VN',
     name: 'Vahid Niamadpour',
-    role: 'Founder and ...',
+    role: 'Founder and Backend/AI Developer',
     bio: 'Short text about Vahid Niamadpour',
     image: undefined as string | undefined,
   },
   {
     initials: 'HF',
     name: 'Henrik Falla',
-    role: 'Founder and ...',
+    role: 'Founder and Frontend Developer',
     bio: 'Short text about Henrik Falla',
     image: undefined as string | undefined,
   },
