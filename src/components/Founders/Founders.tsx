@@ -7,21 +7,21 @@ const founders = [
     name: 'Marie-Audrey Raux',
     role: 'Founder and Product Owner',
     bio: 'Marie-Audrey Raux is passionate about emerging technologies and innovation. She connects business needs with technology to deliver meaningful and impactful solutions.',
-    image: undefined as string | undefined,
+    image: '/ma.jpg',
   },
   {
     initials: 'VN',
     name: 'Vahid Niamadpour',
     role: 'Founder and Backend/AI Developer',
-    bio: 'Short text about Vahid Niamadpour',
-    image: undefined as string | undefined,
+    bio: 'Vahid is a Pythonista holding multiple Microsoft AI certificates and is behind the API and AI development of Aretis.',
+    image: '/vahid.jpg',
   },
   {
     initials: 'HF',
     name: 'Henrik Falla',
     role: 'Founder and Frontend Developer',
     bio: 'With more than 10 years of experience in frontend development, Henrik is the driving force behind the user-friendly interface of Aretis.',
-    image: undefined as string | undefined,
+    image: '/henrik.jpg',
   },
 ]
 
